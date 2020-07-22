@@ -1022,7 +1022,7 @@ my multi sub identifier-name(UInt:D $pick) {
     @surnames.pick($pick).map: &surname
 }
 
-class Random::Names:ver<0.0.1>:auth<cpan:ELIZABETH> {
+class Random::Names:ver<0.0.2>:auth<cpan:ELIZABETH> {
     has @!adjectives = @adjectives;
     has @!surnames   = @surnames;
 

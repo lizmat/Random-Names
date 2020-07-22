@@ -13,11 +13,11 @@
     "Random::Names" : "lib/Random/Names.pm6"
   },
   "resources" : [ ],
-  "source-url" : "ssh://github.com/lizmat/Random-Names.git",
+  "source-url" : "https://github.com/lizmat/Random-Names.git",
   "tags" : [
     "NAME",
     "RANDOM"
   ],
   "test-depends" : [ ],
-  "version" : "0.0.1"
+  "version" : "0.0.2"
 }

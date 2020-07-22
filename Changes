@@ -2,5 +2,8 @@ Revision history for Data-Docker-Names
 
 {{$NEXT}}
 
+0.0.2  2020-07-22T23:39:13+02:00
+    - Fix source-url.
+
 0.0.1  2020-07-22T22:42:41+02:00
     - Initial version
