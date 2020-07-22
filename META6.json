@@ -5,16 +5,19 @@
   ],
   "build-depends" : [ ],
   "depends" : [ ],
-  "description" : "blah blah blah",
+  "description" : "Create random names to be used as identifiers",
   "license" : "Artistic-2.0",
-  "name" : "Data::Docker::Names",
+  "name" : "Random::Names",
   "perl" : "6.d",
   "provides" : {
     "Data::Docker::Names" : "lib/Data/Docker/Names.pm6"
   },
   "resources" : [ ],
   "source-url" : "",
-  "tags" : [ ],
+  "tags" : [
+    "NAME",
+    "RANDOM"
+  ],
   "test-depends" : [ ],
   "version" : "0.0.1"
 }
