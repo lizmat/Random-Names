@@ -64,7 +64,7 @@ FUNCTIONS
 docker-name
 -----------
 
-Return a random string similar to how Docker names unnamed containers, such as: *interesting-mendeleev*, *epic-engelbart*, *lucid-dhawan*, *recursing-cori*, *ecstatic-liskov* and *busy-ardinghelli*. These are made from a random selection of an adjective and a surname.
+Return a random string similar to how Docker names unnamed containers, such as: `interesting-mendeleev`, `epic-engelbart`, `lucid-dhawan`, `recursing-cori`, `ecstatic-liskov` and `busy-ardinghelli`. These are made from a random selection of an adjective and a surname.
 
 Optionally takes the number of docker-names to be returned.
 

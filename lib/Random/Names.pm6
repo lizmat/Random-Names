@@ -1022,7 +1022,7 @@ my multi sub identifier-name(UInt:D $pick) {
     @surnames.pick($pick).map: &surname
 }
 
-our class Random::Names:ver<0.0.1>:auth<cpan:ELIZABETH> {
+class Random::Names:ver<0.0.1>:auth<cpan:ELIZABETH> {
     has @!adjectives = @adjectives;
     has @!surnames   = @surnames;
 
@@ -1148,8 +1148,8 @@ will show you more information about that person:
 =head2 docker-name
 
 Return a random string similar to how Docker names unnamed containers,
-such as: I<interesting-mendeleev>, I<epic-engelbart>, I<lucid-dhawan>,
-I<recursing-cori>, I<ecstatic-liskov> and I<busy-ardinghelli>.  These
+such as: C<interesting-mendeleev>, C<epic-engelbart>, C<lucid-dhawan>,
+C<recursing-cori>, C<ecstatic-liskov> and C<busy-ardinghelli>.  These
 are made from a random selection of an adjective and a surname.
 
 Optionally takes the number of docker-names to be returned.
