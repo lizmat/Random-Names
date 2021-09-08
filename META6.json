@@ -1,23 +1,27 @@
 {
-  "auth" : "cpan:ELIZABETH",
-  "authors" : [
+  "auth": "zef:lizmat",
+  "authors": [
     "Elizabeth Mattijsen"
   ],
-  "build-depends" : [ ],
-  "depends" : [ ],
-  "description" : "Create random names to be used as identifiers",
-  "license" : "Artistic-2.0",
-  "name" : "Random::Names",
-  "perl" : "6.d",
-  "provides" : {
-    "Random::Names" : "lib/Random/Names.pm6"
+  "build-depends": [
+  ],
+  "depends": [
+  ],
+  "description": "Create random names to be used as identifiers",
+  "license": "Artistic-2.0",
+  "name": "Random::Names",
+  "perl": "6.d",
+  "provides": {
+    "Random::Names": "lib/Random/Names.rakumod"
   },
-  "resources" : [ ],
-  "source-url" : "https://github.com/lizmat/Random-Names.git",
-  "tags" : [
+  "resources": [
+  ],
+  "source-url": "https://github.com/lizmat/Random-Names.git",
+  "tags": [
     "NAME",
     "RANDOM"
   ],
-  "test-depends" : [ ],
-  "version" : "0.0.3"
+  "test-depends": [
+  ],
+  "version": "0.0.4"
 }

@@ -1,3 +1,5 @@
+[![Actions Status](https://github.com/lizmat/Random-Names/workflows/test/badge.svg)](https://github.com/lizmat/Random-Names/actions)
+
 NAME
 ====
 
@@ -146,14 +148,14 @@ Optionally takes the number of identifiers to be returned.
 AUTHOR
 ======
 
-Elizabeth Mattijsen <liz@wenzperl.nl>, inspired by the Perl module `Data::Docker::Names` by Mikko Johannes Koivunalho <mikko.koivunalho@iki.fi>.
+Elizabeth Mattijsen <liz@raku.rocks>, inspired by the Perl module `Data::Docker::Names` by Mikko Johannes Koivunalho <mikko.koivunalho@iki.fi>.
 
 Source can be located at: https://github.com/lizmat/Random-Names . Comments and Pull Requests are welcome.
 
 COPYRIGHT AND LICENSE
 =====================
 
-Copyright 2020 Elizabeth Mattijsen
+Copyright 2020, 2021 Elizabeth Mattijsen
 
 This library is free software; you can redistribute it and/or modify it under the Artistic License 2.0.
 

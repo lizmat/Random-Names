@@ -1022,7 +1022,7 @@ my multi sub identifier-name(UInt:D $pick) {
     @surnames.pick($pick).map: &surname
 }
 
-class Random::Names:ver<0.0.3>:auth<cpan:ELIZABETH> {
+class Random::Names:ver<0.0.4>:auth<zef:lizmat> {
     has @!adjectives = @adjectives;
     has @!surnames   = @surnames;
 
@@ -1247,7 +1247,7 @@ Optionally takes the number of identifiers to be returned.
 
 =head1 AUTHOR
 
-Elizabeth Mattijsen <liz@wenzperl.nl>, inspired by the Perl module
+Elizabeth Mattijsen <liz@raku.rocks>, inspired by the Perl module
 C<Data::Docker::Names> by Mikko Johannes Koivunalho <mikko.koivunalho@iki.fi>.
 
 Source can be located at: https://github.com/lizmat/Random-Names .
@@ -1255,7 +1255,7 @@ Comments and Pull Requests are welcome.
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2020 Elizabeth Mattijsen
+Copyright 2020, 2021 Elizabeth Mattijsen
 
 This library is free software; you can redistribute it and/or modify it under
 the Artistic License 2.0.
