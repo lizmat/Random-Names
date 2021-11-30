@@ -1,0 +1,18 @@
+use Random::Names:ver<0.0.5>:auth<zef:lizmat>;
+my %*SUB-MAIN-OPTS = :named-anywhere;
+
+unit sub MAIN($times = 1, Bool :$docker, Bool :$class, Bool :$verbose);
+
+my &generate = $docker
+  ?? &docker-name
+  !! $class
+    ?? &class-name
+    !! &identifier-name;
+
+for generate($times) -> $name {
+    say $verbose
+      ?? ("$name\n$_\n$_.LINK()\n" given $name.WHY)
+      !! $name;
+}
+
+# vim: expandtab shiftwidth=4

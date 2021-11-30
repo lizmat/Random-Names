@@ -46,6 +46,8 @@ Title-cased names used for classes in Raku.
 
 Just a random name that can be used as an identifier.
 
+This module also installs a `rn` script that allows you to generate one or more names, accepting a named argument `--docker` for docker names, `--class` for class names, or just identifiers if not specified. Also optionally takes a named argument `--verbose` to also show the `WHY` and `LINK` information.
+
 ADDITIONAL INFORMATION
 ======================
 

@@ -1003,7 +1003,7 @@ my multi sub docker-name() {
     adjective-surname(@adjectives.roll, @surnames.roll)
 }
 my multi sub docker-name(UInt:D $pick) is export {
-    @adjectives.pick($pick) <<[&adjective-surname]<< @surnames.pick($pick)
+    @adjectives.pick($pick) Z[&adjective-surname] @surnames.pick($pick)
 }
 
 my proto sub class-name(|) is export {*}
@@ -1022,7 +1022,7 @@ my multi sub identifier-name(UInt:D $pick) {
     @surnames.pick($pick).map: &surname
 }
 
-class Random::Names:ver<0.0.4>:auth<zef:lizmat> {
+class Random::Names:ver<0.0.5>:auth<zef:lizmat> {
     has @!adjectives = @adjectives;
     has @!surnames   = @surnames;
 
@@ -1126,6 +1126,12 @@ Title-cased names used for classes in Raku.
 =item identifier-name
 
 Just a random name that can be used as an identifier.
+
+This module also installs a C<rn> script that allows you to generate one or
+more names, accepting a named argument C<--docker> for docker names,
+C<--class> for class names, or just identifiers if not specified.  Also
+optionally takes a named argument C<--verbose> to also show the C<WHY> and
+C<LINK> information.
 
 =head1 ADDITIONAL INFORMATION
 
