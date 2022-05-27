@@ -979,22 +979,25 @@ my role Link { has $.LINK }
 
 my sub adjective-surname($adjective, $surname --> Str:D) {
     my $name := "$adjective\-$surname";
-    my @info := %info{$surname};
-    $name.set_why(@info[0] but Link(@info[1]));
+    with %info{$surname} -> @info {
+        $name.set_why(@info[0] but Link(@info[1]));
+    }
     $name
 }
 
 my sub surname-tc($surname --> Str:D) {
     my $name := $surname.tc;
-    my @info := %info{$surname};
-    $name.set_why(@info[0] but Link(@info[1]));
+    with %info{$surname} -> @info {
+        $name.set_why(@info[0] but Link(@info[1]));
+    }
     $name
 }
 
 my sub surname($surname --> Str:D) {
     my $name = $surname;
-    my @info := %info{$surname};
-    $name.set_why(@info[0] but Link(@info[1]));
+    with %info{$surname} -> @info {
+        $name.set_why(@info[0] but Link(@info[1]));
+    }
     $name
 }
 
@@ -1022,9 +1025,9 @@ my multi sub identifier-name(UInt:D $pick) {
     @surnames.pick($pick).map: &surname
 }
 
-class Random::Names:ver<0.0.5>:auth<zef:lizmat> {
-    has @!adjectives = @adjectives;
-    has @!surnames   = @surnames;
+class Random::Names {
+    has @.adjectives = @adjectives;
+    has @.surnames   = @surnames;
 
     multi method docker-name(Random::Names:U:) {
         docker-name
@@ -1086,22 +1089,22 @@ Random::Names - Create random names to be used as identifiers
 
 =begin code :lang<raku>
 
-  use Random::Names;
+use Random::Names;
 
-  # procedural interface
-  say docker-name;      # e.g. epic-engelbart
-  say class-name;       # e.g. Mendeleev
-  say identifier-name;  # e.g. dhawan
+# procedural interface
+say docker-name;      # e.g. epic-engelbart
+say class-name;       # e.g. Mendeleev
+say identifier-name;  # e.g. dhawan
 
-  my @dn = docker-name(10);      # get array with 10 unique docker-names
-  my @cn = class-name(10);       # get array with 10 unique class-names
-  my @in = identifier-name(10);  # get array with 10 unique identifiers
+my @dn = docker-name(10);      # get array with 10 unique docker-names
+my @cn = class-name(10);       # get array with 10 unique class-names
+my @in = identifier-name(10);  # get array with 10 unique identifiers
 
-  # object interface
-  my $rn = Random::Names.new;  # set up unique pool of names
-  say $rn.docker-name;
-  say $rn.class-name;
-  say $rn.identifier-name;
+# object interface
+my $rn = Random::Names.new;  # set up unique pool of names
+say $rn.docker-name;
+say $rn.class-name;
+say $rn.identifier-name;
 
 =end code
 
@@ -1139,15 +1142,23 @@ Each string that is being returned by this module, also has a C<.WHY>
 method attached to it that will give additional information about the
 person to which the name is attached.  E.g.;
 
-  my $name = identifier-name;
-  say $name;  # einstein
-  my $why = $name.WHY;
-  say $why;  # Albert Einstein invented the general theory of relativity.
+=begin code :lang<raku>
+
+my $name = identifier-name;
+say $name;  # einstein
+my $why = $name.WHY;
+say $why;  # Albert Einstein invented the general theory of relativity.
+
+=end code
 
 And that string has a C<.LINK> method that produces a link to a page that
 will show you more information about that person:
 
-  say $why.LINK;  # https://en.wikipedia.org/wiki/Albert_Einstein
+=begin code :lang<raku>
+
+say $why.LINK;  # https://en.wikipedia.org/wiki/Albert_Einstein
+
+=end code
 
 =head1 FUNCTIONS
 
@@ -1162,8 +1173,8 @@ Optionally takes the number of docker-names to be returned.
 
 =begin code :lang<raku>
 
-  say docker-name;          # e.g. epic-engelbart
-  .say for docker-name(5);  # 5 different docker names
+say docker-name;          # e.g. epic-engelbart
+.say for docker-name(5);  # 5 different docker names
 
 =end code
 
@@ -1176,8 +1187,8 @@ Optionally takes the number of class names to be returned.
 
 =begin code :lang<raku>
 
-  say class-name;          # e.g. Engelbart
-  .say for class-name(5);  # 5 different class names
+say class-name;          # e.g. Engelbart
+.say for class-name(5);  # 5 different class names
 
 =end code
 
@@ -1190,8 +1201,8 @@ Optionally takes the number of identifiers to be returned.
 
 =begin code :lang<raku>
 
-  say identifier-name;          # e.g. cori
-  .say for identifier-name(5);  # 5 different identifiers
+say identifier-name;          # e.g. cori
+.say for identifier-name(5);  # 5 different identifiers
 
 =end code
 
@@ -1206,6 +1217,17 @@ adjective and each surname B<only once>.  This means that any mix of
 calls to C<docker-name>, C<class-name> or C<identifier-name>, the
 returned strings will always be unique.
 
+=head2 new
+
+=begin code :lang<raku>
+
+my $rn = Random::Names.new:
+  adjectives => <pretty awful>,     # default: standard set of adjectives
+  surnames   => <mattijsen kasik>,  # default: standard set of surnames
+;
+
+=end code
+
 =head2 docker-name
 
 Return a random string similar to how Docker names unnamed containers.
@@ -1215,9 +1237,9 @@ Optionally takes the number of docker-names to be returned.
 
 =begin code :lang<raku>
 
-  my $rn = Random::Names.new;
-  say $rn.docker-name;          # e.g. epic-engelbart
-  .say for $rn.docker-name(5);  # 5 different docker names
+my $rn = Random::Names.new;
+say $rn.docker-name;          # e.g. epic-engelbart
+.say for $rn.docker-name(5);  # 5 different docker names
 
 =end code
 
@@ -1230,9 +1252,9 @@ Optionally takes the number of class names to be returned.
 
 =begin code :lang<raku>
 
-  my $rn = Random::Names.new;
-  say $rn.class-name;          # e.g. Engelbart
-  .say for $rn.class-name(5);  # 5 different class names
+my $rn = Random::Names.new;
+say $rn.class-name;          # e.g. Engelbart
+.say for $rn.class-name(5);  # 5 different class names
 
 =end code
 
@@ -1245,11 +1267,31 @@ Optionally takes the number of identifiers to be returned.
 
 =begin code :lang<raku>
 
-  my $rn = Random::Names.new;
-  say $rn.identifier-name;          # e.g. cori
-  .say for $rn.identifier-name(5);  # 5 different identifiers
+my $rn = Random::Names.new;
+say $rn.identifier-name;          # e.g. cori
+.say for $rn.identifier-name(5);  # 5 different identifiers
 
 =end code
+
+=head2 adjectives
+
+=begin code :lang<raku>
+
+.say for Random::Names.new.adjectives;
+
+=end code
+
+Return an array of possible adjectives, alphabetically sorted.
+
+=head2 surnames
+
+=begin code :lang<raku>
+
+.say for Random::Names.new.surnames;
+
+=end code
+
+Return an array of possible surnames, alphabetically sorted.
 
 =head1 AUTHOR
 
@@ -1259,13 +1301,17 @@ C<Data::Docker::Names> by Mikko Johannes Koivunalho <mikko.koivunalho@iki.fi>.
 Source can be located at: https://github.com/lizmat/Random-Names .
 Comments and Pull Requests are welcome.
 
+If you like this module, or what I’m doing more generally, committing to a
+L<small sponsorship|https://github.com/sponsors/lizmat/>  would mean a great
+deal to me!
+
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2020, 2021 Elizabeth Mattijsen
+Copyright 2020, 2021, 2022 Elizabeth Mattijsen
 
 This library is free software; you can redistribute it and/or modify it under
 the Artistic License 2.0.
 
 =end pod
 
-# vim: ft=perl6 expandtab sw=4
+# vim: expandtab shiftwidth=4

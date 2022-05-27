@@ -61,3 +61,5 @@ for
 }
 
 done-testing;
+
+# vim: expandtab shiftwidth=4

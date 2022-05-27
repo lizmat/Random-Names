@@ -2,6 +2,12 @@ Revision history for Random::Names
 
 {{$NEXT}}
 
+0.0.6  2022-05-27T20:06:44+02:00
+    - Make "adjectives" and "surnames" attributes public
+    - Some pod fixes
+    - Added sponsor link
+    - Updated copyright year
+
 0.0.5  2021-11-30T20:20:47+01:00
     - Add rn CLI for easy generation from the command line
     - Fix issue with docker-name(N) where N > 1
