@@ -1,6 +1,8 @@
 Revision history for Random::Names
 
 {{$NEXT}}
+
+0.0.7  2025-06-04T21:24:00+02:00
     - Add CI badge for each OS
     - Initialize lookup hash at compilation time from a resource
       file for faster and less resource intensive compilation
