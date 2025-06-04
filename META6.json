@@ -14,7 +14,7 @@
   "provides": {
     "Random::Names": "lib/Random/Names.rakumod"
   },
-  "resources": [
+  "resources": [ "people"
   ],
   "source-url": "https://github.com/lizmat/Random-Names.git",
   "tags": [
