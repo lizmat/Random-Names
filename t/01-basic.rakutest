@@ -1,6 +1,8 @@
 use Test;
 use Random::Names;
 
+plan 91;
+
 my $rn = Random::Names.new;
 isa-ok $rn, Random::Names, 'did we get a Random::names?';
 
@@ -57,9 +59,7 @@ for
     ok all(@name.map: *.WHY.LINK) ~~ Str,
       'are all .WHY.LINK just strings';
     ok all(@name.map: *.WHY.LINK.starts-with("https://")),
-      'are all .WHY.LINK just strings';
+      'are all .WHY.LINK URLs';
 }
-
-done-testing;
 
 # vim: expandtab shiftwidth=4

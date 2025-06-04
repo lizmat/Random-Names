@@ -1,6 +1,10 @@
 Revision history for Random::Names
 
 {{$NEXT}}
+    - Add CI badge for each OS
+    - Initialize lookup hash at compilation time from a resource
+      file for faster and less resource intensive compilation
+    - Updated copyright year
 
 0.0.6  2022-05-27T20:06:44+02:00
     - Make "adjectives" and "surnames" attributes public
