@@ -2,6 +2,9 @@ Revision history for Random::Names
 
 {{$NEXT}}
 
+0.0.8  2025-06-20T18:32:18+02:00
+    - Fix incorrect version reference in "rn" script
+
 0.0.7  2025-06-04T21:24:00+02:00
     - Add CI badge for each OS
     - Initialize lookup hash at compilation time from a resource

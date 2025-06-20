@@ -1,4 +1,4 @@
-use Random::Names:ver<0.0.5>:auth<zef:lizmat>;
+use Random::Names:auth<zef:lizmat>;
 my %*SUB-MAIN-OPTS = :named-anywhere;
 
 unit sub MAIN($times = 1, Bool :$docker, Bool :$class, Bool :$verbose);
