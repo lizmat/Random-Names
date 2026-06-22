@@ -1,6 +1,8 @@
 Revision history for Random::Names
 
 {{$NEXT}}
+
+0.0.9  2026-06-22T22:37:39+02:00
     - Fix potential race-condition
     - Modernize META
     - Update copyright year
