@@ -29,7 +29,7 @@ my constant %info = do {
     %hash.Map  # UNCOVERABLE
 }
 
-my constant @surnames := %info.keys.sort;
+my constant @surnames := eager %info.keys.sort;
 
 my role Link { has $.LINK }
 

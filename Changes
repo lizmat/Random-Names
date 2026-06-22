@@ -1,6 +1,9 @@
 Revision history for Random::Names
 
 {{$NEXT}}
+    - Fix potential race-condition
+    - Modernize META
+    - Update copyright year
 
 0.0.8  2025-06-20T18:32:18+02:00
     - Fix incorrect version reference in "rn" script
